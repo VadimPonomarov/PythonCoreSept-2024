@@ -192,6 +192,8 @@ avg_of_list(3, 7, 1)
 # ################################################################################################
 # 1)Дан list:
 list = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+
+
 #   - знайти мін число
 #   - видалити усі дублікати
 #   - замінити кожне 4-те значення на 'X'
@@ -211,14 +213,25 @@ def square(n):
 
 
 square(15)
+
+
 # 3) вывести табличку множення за допомогою цикла while
 
 def multiplication_table():
     for i in range(1, 11):
         print(" ".join([str(i * j).rjust(3) for j in range(1, 11)]))
 
+
+def multiplication_table_while():
+    i = 1
+    while i <= 10:
+        print(" ".join([str(i * j).rjust(3) for j in range(1, 11)]))
+        i += 1
+
+
 def multiplication_table_comprehension():
     [print(" ".join([str(i * j).rjust(3) for j in range(1, 11)])) for i in range(1, 11)]
+
 
 # 4) переробити це завдання під меню
 
@@ -231,20 +244,21 @@ while True:
         5) вивести табличку множення за допомогою list comprehension
         6) выйти из программы
     ''')
-
     val = input("Введіть номер завдання: ")
-
     if val == "1":
         list_manipulation([22, 3, 5, 2, 8, 2, -23, 8, 23, 5])
     elif val == "2":
         n = int(input("Введіть сторону квадрату: "))
         square(n)
     elif val == "3":
-        multiplication_table()
+        multiplication_table_while()
     elif val == "4":
-        multiplication_table_comprehension()
+        multiplication_table()
     elif val == "5":
+        multiplication_table_comprehension()
+    elif val == "6":
         print("Выход из программы...")
         break
     else:
         print("Невірно введені дані")
+    val = input("Введіть номер завдання: ")
