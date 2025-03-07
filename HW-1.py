@@ -261,4 +261,3 @@ while True:
         break
     else:
         print("Невірно введені дані")
-    val = input("Введіть номер завдання: ")
