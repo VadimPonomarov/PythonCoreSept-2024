@@ -177,6 +177,26 @@ expanded_numbers(70304)  # return '70000 + 300 + 4'
 print('''
 4) створити декоратор котрий буде підраховувати скільки разів була запущена функція 
 продекорована цим декоратором, та буде виводити це значення після виконання функцій
+
+def counter(func: Callable) -> Callable:
+    counter = 0
+    def wrapper(*args, **kwargs) -> Callable:
+        nonlocal counter
+        counter += 1
+        func(*args, **kwargs)
+        print(f"Function {func.__name__} was called {counter} times")
+
+    return wrapper
+
+@counter
+def fnc():
+    print("Hello")
+
+fnc()
+fnc()
+fnc()
+fnc()
+
 ''')
 
 def counter(func: Callable) -> Callable:
