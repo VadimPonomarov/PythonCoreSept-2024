@@ -94,3 +94,34 @@ all_after_delete = ShopBook.delete_item(3)
 for i in all_after_delete:
     print(i)
 
+print('''
+(ну і меню на це все)''')
+
+while True:
+    print('''
+    1) Вивести всі покупки
+    2) Додати покупку
+    3) Пошук покупки
+    4) Вивести найдорожчу покупку
+    5) Видалити покупку
+    6) Вихід''')
+    val = input("Введіть номер завдання: ")
+    if val == "1":
+        get_all = ShopBook.get_all()
+        for i in get_all:
+            print(i)
+    elif val == "2":
+        id = input("Введіть id: ")
+        name = input("Введіть назву: ")
+        price = input("Введіть ціну: ")
+        ShopBook.add_item(id, name, price)
+    elif val == "3":
+        id = input("Введіть id: ")
+        print(ShopBook.delete_item(id))
+    elif val == "4":
+        print(ShopBook.get_expensive_item())
+    elif val == "5":
+        ShopBook.all_clear()
+    elif val == "6":
+        print("Выход из программы...")
+
